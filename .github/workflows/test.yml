@@ -24,11 +24,16 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           python -m pip install -r requirements.txt
-
+          
+      - name: Verify DeepEval
+       run: |
+         python -m pip show deepeval
+         python -m deepeval --version
+      
       - name: Run DeepEval tests
         env:
           LLM_BASE_URL: ${{ secrets.LLM_BASE_URL }}
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
         run: |
-          deepeval test run tests/
+          python -m deepeval test run tests/
