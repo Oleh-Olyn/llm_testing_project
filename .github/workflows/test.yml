@@ -28,7 +28,7 @@ jobs:
       - name: Verify DeepEval
         run: |
           python -m pip show deepeval
-          python -m deepeval --version
+          python -c "import deepeval; print(deepeval.__version__)"
 
       - name: Run DeepEval tests
         env:
@@ -36,4 +36,5 @@ jobs:
           LLM_MODEL: ${{ secrets.LLM_MODEL }}
           LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
         run: |
-          python -m deepeval test run tests/
+          $scripts = python -c "import sys; print(sys.prefix + '\Scripts')"
+          & "$scripts\deepeval.exe" test run tests/
