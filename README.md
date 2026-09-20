@@ -10,9 +10,11 @@ The project evaluates LLM responses across five quality dimensions:
 The project contains 13 automated test cases and uses five DeepEval metrics.
 
 ## Project Structure
+```text
 llm_testing_project/
 │
 ├── tests/
+│   ├── __init__.py
 │   ├── test_accuracy.py
 │   ├── test_relevancy.py
 │   ├── test_hallucination.py
@@ -20,6 +22,7 @@ llm_testing_project/
 │   └── test_bias.py
 │
 ├── helpers/
+│   ├── __init__.py
 │   ├── llm_client.py
 │   └── test_utils.py
 │
@@ -30,6 +33,8 @@ llm_testing_project/
 ├── .gitignore
 ├── requirements.txt
 └── README.md
+```
+
 
 ## Technologies
 * Python
